@@ -1,0 +1,38 @@
+# -- I -- 
+PARAM.SCALE 50 150       # Param knob returns values from 50 - 150
+A 8; Q.N A; O.MAX - A 1  # A = num scripts, set up Q and O vars
+L 1 A: Q.I - I 1 I       # Fill Q with values 1, 2, ..., A 
+
+# -- M --
+M BPM PARAM              # Set tempo to value of param knob
+Q.RND * -1 A             # Scramble Q with A pairwise swaps
+# Every Ath of a beat, call script based on random value from Q
+DEL.R A / M A: $ Q.I O   
+
+# -- 1 --
+TR.TIME 1 / M A; TR.P 1  # Set length of TR 1 to Ath of beat and call
+
+# -- 2 --
+TR.TIME 2 / M A; TR.P 2  # Set length of TR 2 to Ath of beat and call
+
+# -- 3 --
+TR.TIME 3 / M A; TR.P 3  # Set length of TR 3 to Ath of beat and call
+
+# -- 4 --
+TR.TIME 4 / M A; TR.P 4  # Set length of TR 4 to Ath of beat and call
+
+# -- 5 --
+CV 1 V 5                 # Turn on CV 1 full
+DEL / M A: CV 1 V 0      # Turn off CV 1 after an Ath of a beat
+
+# -- 6 --
+CV 2 V 5                 # Turn on CV 2 full
+DEL / M A: CV 2 V 0      # Turn off CV 2 after an Ath of a beat
+
+# -- 7 --
+CV 3 V 5                 # Turn on CV 3 full
+DEL / M A: CV 3 V 0      # Turn off CV 3 after an Ath of a beat
+
+# -- 8 --
+CV 4 V 5                 # Turn on CV 4 full
+DEL / M A: CV 3 V 0      # Turn off CV 4 after an Ath of a beat
