@@ -35,4 +35,4 @@ DEL / M A: CV 3 V 0      # Turn off CV 3 after an Ath of a beat
 
 # -- 8 --
 CV 4 V 5                 # Turn on CV 4 full
-DEL / M A: CV 3 V 0      # Turn off CV 4 after an Ath of a beat
+DEL / M A: CV 4 V 0      # Turn off CV 4 after an Ath of a beat
