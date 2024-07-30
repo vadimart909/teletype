@@ -1,3 +1,15 @@
+//8 numbered scripts are triggered once per beat in some random permutation. Obviously, 
+if you use four scripts and put TR.P 1, …, TR.P 4 in scripts 1, …, 4 then it will do the same as the original script above.
+
+Scripts 1 through 4 above just set the pulse time for each trigger before calling them and scripts 5 through 8 make the CV outs
+behave like gates by turning them on and then (M / A) milliseconds later turning it off again.
+
+The advantage of this approach is that you can set A to be how many scripts you want per beat and then put what ever you want in the scripts. 
+The M script will make sure that all A scripts are triggered each beat in some random ordering.
+
+You will need to run the I script once before anything will work. You can either press F10 or run $ I from the command prompt in Teletype 
+or save the whole scene and restart Teletype (the I script is run to initialize a scene when it is first loaded).
+
 # -- I -- 
 PARAM.SCALE 50 150       # Param knob returns values from 50 - 150
 A 8; Q.N A; O.MAX - A 1  # A = num scripts, set up Q and O vars
